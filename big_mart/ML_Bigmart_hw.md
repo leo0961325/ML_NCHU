@@ -16,7 +16,11 @@
 
 ### 2. Linear Regression
 
-> 選用Linear Regression作為預測方法，而首先將分成將資料分成 train/test，而測試集選用其中20%做分析，將資料進行 normalize，再進行fit訓練，使用Linear_Regression分析出預測值為0.54-0.58之間，
+> 選用Linear Regression作為預測方法，而首先將分成將資料分成 train/test，而測試集選用其中20%做分析，將資料進行 normalize，再進行fit訓練，使用Linear_Regression分析出預測值為0.54-0.58之間，應屬可接受成果。
+> 再導入cross_val_score，使用cv皆為16，而為了更有效產出更好的預測方法，分別加入Normalizer,Ridge and Lasso Regression ,ElasticNet ,PolynomialFeatures等五種方法預測，為了不使程式碼紊亂，將各種預測方法皆寫成函式方便管理。
+> 其中Ridge and Lasso Regression的alpha透過RidgeCV找出最適合值為0.0025
+> 將上述 Linear Regression皆分析過後，結果為PolynomialFeatures = PolynomialFeatures in SelectFromModel > Ridge_and_Lasso > Linear_Regression > RANSAC_Regressor > ElasticNet > Linear_Regression_Normalizer ,結論是使用PolynomialFeatures應是最佳解，而將Linear_Regression加入Normalizer後結果是最差的。
+
 
 
 
