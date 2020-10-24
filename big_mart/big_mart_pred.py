@@ -18,14 +18,14 @@ from sklearn.feature_selection import SelectFromModel #5
 
 
 # Import the preprocessed files and divide them into training set and test set
-train2 = pd.read_csv("big_mart/train_mod.csv")
-test2 = pd.read_csv("big_mart/test_mod.csv")
+new_train = pd.read_csv("big_mart/train_mod.csv")
+new_test = pd.read_csv("big_mart/test_mod.csv")
 
 
 
-X = train2.drop(['Item_Outlet_Sales', 'Outlet_Identifier','Item_Identifier'], axis=1)
-y = train2.Item_Outlet_Sales
-
+X = new_train.drop(['Item_Outlet_Sales', 'Outlet_Identifier','Item_Identifier'], axis=1) # X_train
+y = new_train.Item_Outlet_Sales #y_train
+X_test = new_test.drop(['Outlet_Identifier','Item_Identifier'], axis=1)
 # Predicting the test set results
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
